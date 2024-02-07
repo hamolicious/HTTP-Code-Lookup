@@ -135,6 +135,18 @@ def _search(search_term: str) -> None:
 
 
 def main(search_term: str, output_as_json: bool = False, no_pretty: bool = False, indent_size: int = 2, no_colour: bool = False) -> str | None:
+  """Look up and search HTTP codes
+
+  Args:
+      search_term (str): 3-digit status code (use `x` as a wildcard) or text to be searched.
+      output_as_json (bool, optional): Output search results as JSON. Defaults to False.
+      no_pretty (bool, optional): Don't pretty print JSON, does nothing without `--output-as-json`. Defaults to False.
+      indent_size (int, optional): Indent size, does nothing without `--no-pretty`. Defaults to 2.
+      no_colour (bool, optional): Don't use colour, , does nothing if `--output-as-json` is set. Defaults to False.
+
+  Returns:
+      str | None: Prints or returns search results
+  """
   if no_colour:
     Config.no_color = True
 
