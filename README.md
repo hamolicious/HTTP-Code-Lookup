@@ -3,12 +3,15 @@ Allows you to very quickly view and search [Wikipedia's HTTP Codes](https://en.w
 
 ## What the hell is this?
 Look up specific codes
+
 ![code lookup](https://i.ibb.co/vBWgJS1/image.png)
 
 Filter using wildcards
+
 ![wildcard lookup](https://i.ibb.co/CWZ3ZW1/image.png)
 
 Don't know the status code?
+
 ![text lookup](https://i.ibb.co/9TQgxtw/image.png)
 
 
