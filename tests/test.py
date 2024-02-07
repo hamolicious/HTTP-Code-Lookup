@@ -2,7 +2,6 @@ from typing import Any
 import unittest
 import os
 import subprocess
-import sys
 
 
 class WikipediaPlagiariserTests(unittest.TestCase):
