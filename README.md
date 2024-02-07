@@ -24,6 +24,8 @@ python main.py <search_term>
 ```
 
 ### Using alias/DOSKEY
+Setting up an alias for the script will allow you to use a custom, short "name" for any action.
+
 For Unix systems place the following into `.bashrc` or `.zshrc`
 ```bash
 alias http-code="path/to/python /path/to/main.py $@"
