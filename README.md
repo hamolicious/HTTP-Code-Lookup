@@ -1,5 +1,5 @@
 # HTTP Code Lookup
-Allows you to very quickly view and search [Wikipedia's HTTP Codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) page.
+Allows you to very quickly view and search an offline version of the [Wikipedia's HTTP Codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) page.
 
 ## What the hell is this?
 Look up specific codes
@@ -15,8 +15,11 @@ Don't know the status code?
 ![text lookup](https://i.ibb.co/9TQgxtw/image.png)
 
 
-## How to run
-Install `requirements.txt` using `pip install -r requirements.txt`. Although not required, setting up a [`virtualenv`](https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/) is advised.
+## How to Install
+```bash
+pip install hhttpcode
+```
+
 
 ### Using Python
 ```bash
