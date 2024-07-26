@@ -20,7 +20,7 @@ Install `requirements.txt` using `pip install -r requirements.txt`. Although not
 
 ### Using Python
 ```bash
-python -m httcode <search_term>
+python -m http-code <search_term>
 ```
 
 ### Using alias/DOSKEY
