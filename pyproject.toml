@@ -1,6 +1,6 @@
 [project]
 name = "hhttpcode"
-version = "1.0.0"
+version = "1.0.1"
 authors = [{ name = "hamolicious", email = "hamolicious@hamolicious.net" }]
 description = "Quickly look up HTTP codes in the terminal"
 readme = "README.md"
