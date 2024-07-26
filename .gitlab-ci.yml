@@ -1,0 +1,3 @@
+include:
+  - project: 'gitlab/default-pipelines'
+    file: '/gitlab-ci/PyPi.gitlab-ci.yml'
