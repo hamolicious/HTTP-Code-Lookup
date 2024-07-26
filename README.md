@@ -20,7 +20,7 @@ Install `requirements.txt` using `pip install -r requirements.txt`. Although not
 
 ### Using Python
 ```bash
-python main.py <search_term>
+python -m httcode <search_term>
 ```
 
 ### Using alias/DOSKEY
@@ -28,19 +28,19 @@ Setting up an alias for the script will allow you to use a custom, short "name" 
 
 For Unix systems place the following into `.bashrc` or `.zshrc`
 ```bash
-alias http-code="path/to/python /path/to/main.py $@"
+alias http-code="python -m httcode $@"
 ```
 
 For Windows place the following into your bat file that runs on terminal startup. If you do not know how to set this up, look into [this answer on Stack Overflow](https://superuser.com/questions/1749663/add-launch-commands-to-command-prompt-in-windows-terminal)
 ```bat
-DOSKEY http-code="path/to/python /path/to/main.py" $*
+DOSKEY http-code="python -m httcode" $*
 ```
 
 
 ### Arguments
 The usage for the tool is as follows:
 ```bash
-python main.py <search_term> --output-as-json --no-pretty --indent-size --no-colour
+http-code <search_term> --output-as-json --no-pretty --indent-size --no-colour
 ```
 * `<search_term>`
   * **Mandatory**: Can be either a 3 digit code (use x to replace unknowns, eg: 2xx for all codes starting with 2) or a text search.
