@@ -1,10 +1,10 @@
 [project]
 name = "hhttpcode"
-version = "1.0.2"
+version = "1.0.3"
 authors = [{ name = "hamolicious", email = "hamolicious@hamolicious.net" }]
 description = "Quickly look up HTTP codes in the terminal"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 dependencies = [
     "colorama==0.4.6",
     "fire==0.5.0",
