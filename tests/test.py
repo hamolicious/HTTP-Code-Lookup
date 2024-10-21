@@ -1,7 +1,7 @@
-from typing import Any
-import unittest
 import os
 import subprocess
+import unittest
+from typing import Any
 
 
 class WikipediaPlagiariserTests(unittest.TestCase):
@@ -40,7 +40,9 @@ class WikipediaPlagiariserTests(unittest.TestCase):
 
     def run_program_with_arguments(self, *args: str) -> tuple[str]:
         result = subprocess.run(
-            executable="python", args=["python", "main.py", *args], capture_output=True
+            executable="python",
+            args=["python", "src/httpcode", *args],
+            capture_output=True,
         )
         return result.stdout, result.stderr
 
