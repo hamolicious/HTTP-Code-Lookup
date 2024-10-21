@@ -1,8 +1,9 @@
 import json
 import os
-from fire import Fire
-import colorama
 import re
+
+import colorama
+from fire import Fire
 
 
 class Config:
@@ -32,31 +33,33 @@ def _load_data() -> dict:
         return json.load(f)
 
 
-def _get_subset(code: str, data: dict) -> dict:
+def _get_subset(
+    code: str, data: dict[str, list[dict[str, str]]]
+) -> list[dict[str, str]]:
     if code.startswith("x"):
-        subset = []
+        subset: list[dict[str, str]] = []
         for key in data:
-            subset += data.get(key)
+            subset += data[key]
 
         return subset
 
     elif _fussy_compare(code, "1xx"):
-        return data.get("info")
+        return data["info"]
 
     elif _fussy_compare(code, "2xx"):
-        return data.get("success")
+        return data["success"]
 
     elif _fussy_compare(code, "3xx"):
-        return data.get("redirect")
+        return data["redirect"]
 
     elif _fussy_compare(code, "4xx"):
-        return data.get("client-errors")
+        return data["client-errors"]
 
     elif _fussy_compare(code, "5xx"):
-        return data.get("server-errors")
+        return data["server-errors"]
 
 
-def _get_color(code: str) -> dict:
+def _get_color(code: str) -> str:
     if Config.no_color:
         return ""
 
@@ -75,8 +78,10 @@ def _get_color(code: str) -> dict:
     elif _fussy_compare(code, "5xx"):
         return colorama.Fore.LIGHTYELLOW_EX
 
+    return ""
 
-def _check_if_code(term: str) -> bool:
+
+def _check_if_status_code(term: str) -> bool:
     return any(
         [
             re.match(r"[\d+|x+]{3,}", term) is not None,
@@ -85,7 +90,7 @@ def _check_if_code(term: str) -> bool:
     )
 
 
-def _search_by_code(code: str) -> None:
+def _search_by_code(code: str) -> list[dict]:
     plagiarised_wikipedia_data = _load_data()
     subset: list[dict] = _get_subset(code, plagiarised_wikipedia_data)
     search_results: list[dict] = []
@@ -97,7 +102,7 @@ def _search_by_code(code: str) -> None:
     return search_results
 
 
-def _search_by_text(text: str) -> None:
+def _search_by_text(text: str) -> list[dict]:
     data = _load_data()
     subset: list[dict] = _get_subset("xxx", data)
     search_results: list[dict] = []
@@ -126,9 +131,9 @@ def _display_data(search_term: str, results: list[dict]) -> None:
         print()
 
 
-def _search(search_term: str) -> None:
+def _search(search_term: str) -> list[dict]:
     search_term = str(search_term)
-    is_code = _check_if_code(search_term)
+    is_code = _check_if_status_code(search_term)
     if is_code:
         data = _search_by_code(search_term)
     else:
@@ -143,7 +148,7 @@ def main(
     no_pretty: bool = False,
     indent_size: int = 2,
     no_colour: bool = False,
-) -> str | None:
+) -> None:
     """Look up and search HTTP codes
 
     Args:
@@ -162,13 +167,15 @@ def main(
     filtered_plagiarised_wikipedia_data = _search(search_term)
 
     if output_as_json:
-        return json.dumps(
-            filtered_plagiarised_wikipedia_data,
-            indent=None if no_pretty else indent_size,
+        print(
+            json.dumps(
+                filtered_plagiarised_wikipedia_data,
+                indent=None if no_pretty else indent_size,
+            )
         )
-    _display_data(search_term, filtered_plagiarised_wikipedia_data)
+        return
 
-    return
+    _display_data(search_term, filtered_plagiarised_wikipedia_data)
 
 
 if __name__ == "__main__":
