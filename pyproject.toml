@@ -18,8 +18,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/pypa/sampleproject"
-Issues = "https://github.com/pypa/sampleproject/issues"
+Homepage = "https://github.com/hamolicious/HTTP-Code-Lookup"
+Issues = "https://github.com/hamolicious/HTTP-Code-Lookup/issues"
 
 [project.scripts]
 http-code = "src.httpcode.__main__:main"
